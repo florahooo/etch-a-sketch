@@ -1,9 +1,13 @@
 const container = document.querySelector('.container');
 const inputBox = document.querySelector('.input-box')
 
+makeGrid()
+const gridButton = document.getElementById('grid-button')
+gridButton.addEventListener('click', makeGrid);
 
+function makeGrid() {
 
-function makeGrid(number) {
+    let number =  24//prompt("Please enter the squares per side", "16");
 
     for (i = 0; i < number; i++) {
 
@@ -24,7 +28,12 @@ function makeGrid(number) {
 
 }
 
-makeGrid(32)
+function clearBoard() {
+
+}
+
+
+
 
 /*const gridBox = document.querySelectorAll('.grid');
 
@@ -41,8 +50,15 @@ function epicClick() {
     console.log('hey hey hey')
 }*/
 
+onHoverBlack();
 
-function onHover() {
+const blackButton = document.getElementById('black-button');
+const rainbowButton = document.getElementById('rainbow-button');
+
+blackButton.addEventListener('click', onHoverBlack);
+rainbowButton.addEventListener('click', onHoverRainbow)
+
+function onHoverBlack() {
 
     const gridBox = document.querySelectorAll('.grid');
 
@@ -57,7 +73,24 @@ function onHover() {
     }
 }
 
-onHover();
+
+function onHoverRainbow() {
+
+    const gridBox = document.querySelectorAll('.grid');
+    
+
+    for (i = 0; i < gridBox.length; i++) {
+
+        let currentBox = gridBox[i]
+        const randomColor = Math.floor(Math.random()*16777215).toString(16);
+
+        currentBox.addEventListener('mouseover', function() {
+            currentBox.style.backgroundColor= "#" + randomColor;
+        })
+
+    }
+
+}
 
 const resetButton = document.querySelector('.reset-button');
 resetButton.addEventListener('click', resetBoard);
@@ -74,9 +107,6 @@ function resetBoard() {
 
     }
 
-/*document.querySelector('input-form').addEventListener('submit', function(event){
-event.preventDefault();
-let userInput = document.getElementById('input').value; 
-alert('hello' + userInput);
-});*/
+    
+
 
