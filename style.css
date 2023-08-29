@@ -1,0 +1,12 @@
+.container {
+
+    background-color: aquamarine;
+    height: 500px;
+    width: 500px;
+    display: flex;
+}
+
+.grid {
+    
+    background-color: blueviolet;
+}
